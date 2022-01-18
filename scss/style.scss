@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+$color: #D1E4ED;
+$other-color: #006A9C;
+$color-cart-section: #E2EEF4;
+$list-color: #F7FAFC;
+$bg-buttons-color: #89072D;
+$container-width: 1200px;
+$border-color: #DDD;
+@mixin center {
+    margin: { 
+        left: auto;
+        right: auto;
+    }
+}
+
+
+*{
+	font: {
+		family: 'Open Sans';
+	}
+	margin: 0;
+}
+
+.container{
+	max-width: $container-width; 
+    @include center; 
+}
+
+.navbar{
+	background-color: $color;
+	width: 100%;
+	position: relative;
+	padding: .3rem 0;
+
+	.navbar__logo{
+		max-width: 15rem;
+	}
+
+	.navbar__cart{
+		display: inline-block;
+		position: absolute;
+		font-size: 2rem;
+		right: 5rem;
+		bottom: .5rem;
+	}
+
+	.navbar__cart__link{
+		text-decoration: none;
+		color: $other-color;
+	}
+
+	.navbar__cart__n{
+		background-color: $other-color;
+		max-width: 3rem;
+		border-radius: 50%;
+		color: #FFF;
+		font-size: 1.1rem;
+		font-weight: bold;
+		padding: .1rem;
+		text-align: center;
+	}
+}
+
+.list{
+	padding: 2rem 0;
+	min-height: 35.7rem;
+	background-color: $list-color;
+	text-align: center;
+
+	.list__items__product{
+		display: inline-block;
+		width: 17rem;
+		margin: 3rem;
+		border: 1px solid #DDD;
+		padding: .9rem;
+	}
+
+	.list__items__product__list{
+		margin: 0;
+		padding: 0;
+	}
+
+	.list__items__product__img{
+		max-width: 9rem;
+		margin-bottom: .5rem;
+	}
+
+	.list__items__product__title{
+		min-height: 4.5rem;
+		font-size: .9rem;
+	}
+
+	.list__items__product__qty{
+		max-width: 2rem;
+		text-align: center;
+		margin: .5rem;
+	}
+
+	.list__items__product__buttons{
+		margin-top: 2rem;	
+	}	
+
+	.list__items__product__button{
+		border: 0;
+		background-color: $bg-buttons-color;
+		color: #FFF;
+		text-transform: uppercase;
+		font-weight: bold;
+		padding: .5rem;
+		margin: .5rem 0;
+	}
+
+	.list__items__product__button:hover{
+		opacity: .8;
+	}
+
+	.list__items__product__total{
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+}
+
+.cart{
+	background-color: $color-cart-section;
+	min-height: 20rem;
+	padding: 2rem;
+}
+
+.footer{
+	background-color: $color;
+	width: 100%;
+	min-height: 5rem;
+	padding: 13.3rem 0;
+	text-align: center;
+
+	.footer__social{
+		font-size: 4rem;
+		color: $other-color;
+	}
+}
+
+
+

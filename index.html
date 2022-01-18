@@ -1,0 +1,64 @@
+<html ng-app="app">
+<head>
+	<title>Loja Intercase</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/all.min.css">
+	<script src="../assets/angular/angular.min.js"></script>
+	<script src="js/all.min.js"></script>
+	<script src="../app/controllers/cartController.js"></script>
+	<!--<script src="../app/controllers/apiController.js"></script>-->
+</head>
+<body ng-controller="cartController">
+	<header>
+		<div class="navbar">
+			<div class="container">
+				<img class="navbar__logo" src="img/logo.png" alt="Logo Intercase">
+				<div class="navbar__cart">
+					<a href="#" class="navbar__cart__link"><i class="fa fa-shopping-cart"></i></a>
+					<p class="navbar__cart__n">{{ products.length }}</p>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="list">	
+		<div class="container">
+	        <div class="list__items">
+	        	<ul class="list__items__product__list">
+	        		<li class="list__items__product" ng-repeat="product in products track by $index">
+	        			<figure>
+	        				<img class="list__items__product__img" src="{{ product.image }}" alt="{{ product.name }}">
+	        				<figcaption class="list__items__product__title" ng-model="product.name"><em>{{ product.name }}</em></figcaption>
+	        			</figure>
+	        			<p class="list__items__product__price">{{ product.price | currency:'R$' }}</p>
+	        			<input class="list__items__product__qty" type="text" ng-model="product.quantity">
+	        			<div class="list__items__product_buttons">
+		        			<button class="list__items__product__button" ng-click="add(product)">adicionar</button>
+		        			<button class="list__items__product__button" ng-click="remove($index)">remover</button>
+	        			</div>
+	        			<p class="list__items__product__total" ng-model="product.total">total: {{ product.price * product.quantity | currency:'R$' }}</p>
+	        		</li>	
+	        	</ul>
+	        </div>
+        </div>
+	</section>
+
+	<section class="cart">
+		<div class="container">
+			<h2 class="cart__title">Carrinho<i class="fa fa-shopping-cart"></i></h2>
+			<p>{{ total }}</p>
+		</div>	
+	</section>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="footer__social">
+				<i class="fa fa-facebook"></i>
+				<i class="fa fa-twitter"></i>
+				<i class="fa fa-instagram"></i>
+				<i class="fa fa-youtube"></i>
+			</div>
+		</div>
+	</footer>
+</body>
+</html> 
